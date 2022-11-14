@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>show</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    
+  
+    <div class="bg-black text-center">
+   <h1 class="text-white font-bold text-3xl p-4">YOUR ALL SHEDULED TASK</h1>
+
+    </div>
+
+    <div class="bg-green-800 text center">
+        <form action="/" method="POST">
+            {% csrf_token %}
+            <button class="text-white w-full hover:bg-gray-500 p-4">Back</button>
+        </form>
+    </div>
+
+      <div class=" min-h-screen bg-slate-900 ">
+
+        <table class="font-bold border-collapse m-10 w-10/12 h-full">
+            <thead>
+                <th  class="border-2 text-center p-4 text-yellow-400 text-2xl font-bold">date</th>
+                <th  class="border-2 text-center p-4 text-yellow-400 text-2xl font-bold">task1</th>
+                <th  class="border-2 text-center p-4 text-yellow-400 text-2xl font-bold">task2</th>
+                <th  class="border-2 text-center p-4 text-yellow-400 text-2xl font-bold">task3</th>
+                <th  class="border-2 text-center p-4 text-yellow-400 text-2xl font-bold">task4</th>
+                <th  class="border-2 text-center p-4 bg-purple-400	 text-2xl font-bold ">update</th>
+            </thead>
+            {% for i in data %}
+
+            <tr class="bg-white even:bg-gray-100">
+                <td class="border-2  bg-slate-900 p-4  text-white">{{i.0}}</td>
+                <td class="border-2  bg-slate-900  text-white">{{i.1}}</td>
+                <td class="border-2  bg-slate-900  text-white">{{i.2}}</td>
+                <td class="border-2  bg-slate-900  text-white">{{i.3}}</td>
+                <td class="border-2  bg-slate-900   text-white">{{i.4}}</td>
+
+                <td>
+                    <a href="/edit?date={{i.0}}" class="text-green-900 font-bold border-4" >Edit</a>&nbsp
+                    <a href="/delete?date={{i.0}}" class="text-red-900 font-bold">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+
+
+
+
+    
+</body>
+</html>

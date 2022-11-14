@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home page</title>
+</head>
+<body>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+<div class="bg-gray-800 p-8 ">
+     <h1 class="text-white  m-auto w-fit font-bold text-3xl ">[Edit Your Content]</h1>
+    
+</div>
+
+<div>
+    <form action="/show/" method='POST'>
+        {% csrf_token %}
+
+    </form>
+</div>
+
+<div >
+    <h1 class=" p-4 bg-blue-900 font-bold text-white w-full text-center mt-4 text-2xl	">Content</h1>
+</div>
+
+
+<div class="text-center bg-amber-900">
+
+ 
+<form action="/edited/" method="POST">
+{% csrf_token %}
+
+
+<lable class="font-bold text-white">date</lable><br>
+{% for i in ms %}
+<input type="text"  class="border-4 p-4 border-solid border-4 border-gray-500 w-72"name="date" value={{i.0}}><br>
+
+<lable class="font-bold text-white">Task1</lable><br>
+<input type="text"   class=" p-4 w-72 border-solid border-4 border-gray-500 " name="task1" required value={{i.1}}><br>
+
+<lable class="font-bold text-white">Task2</lable><br>
+<input type="text" class="border-4 p-4  w-72 border-solid border-4 border-gray-500 " name="task2"  required  value={{i.2}}><br>
+
+<lable class="font-bold text-white">Task3</lable><br>
+<input type="text"  class="border-4 p-4 border-solid border-4 border-gray-500 w-72" name="task3" value={{i.3}} ><br>
+
+<lable class="font-bold text-white">Task4</lable><br>
+<input type="text"  class="border-4 p-4 border-solid border-4 border-gray-500 w-72"name="task4" value={{i.4}}  ><br>
+{% endfor %}
+
+<button class=" p-4 bg-indigo-900 font-bold text-white mr-16 mt-8 hover:bg-emerald-600 text-2xl w-72 ml-16 mb-4	">Edit</button>
+
+
+
+</form>
+
+
+</div>
+
+
+
+
+    
+</body>
+</html>

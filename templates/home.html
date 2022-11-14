@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home page</title>
+</head>
+<body>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+<div class="bg-gray-800 p-8 ">
+     <h1 class="text-white  m-auto w-fit font-bold text-3xl ">[Add Your Today Focus]</h1>
+     <h1 class="text-white text-2xl font-bold">{{ms}}</h1>
+</div>
+
+<div>
+    <form action="/show/" method='POST'>
+        {% csrf_token %}
+        <button class=" p-4 bg-green-900 font-bold text-white mr-16 mt-8 w-full hover:bg-emerald-600 text-2xl">Show Record</button>
+    </form>
+</div>
+
+<div >
+    <h1 class=" p-4 bg-blue-900 font-bold text-white w-full text-center mt-4 text-2xl	"> Good Morning 'Sachin🥀'</h1>
+</div>
+
+
+<div class="text-center bg-amber-900">
+
+ 
+<form action="/save/" method="POST">
+{% csrf_token %}
+
+<lable class="font-bold text-white ">date</lable><br>
+<input type="text"  class="border-4 p-4 border-solid border-4 border-gray-500 rounded-2xl  w-72"name="date" required  ><br>
+
+<lable class="font-bold text-white">Task1</lable><br>
+<input type="text"   class=" p-4 w-72 border-solid border-4 border-gray-500 rounded-2xl " name="task1" required><br>
+
+<lable class="font-bold text-white">Task2</lable><br>
+<input type="text" class="border-4 p-4  w-72 border-solid border-4 border-gray-500 rounded-2xl  " name="task2"  required><br>
+
+<lable class="font-bold text-white">Task3</lable><br>
+<input type="text"  class="border-4 p-4 border-solid border-4 border-gray-500 w-72 rounded-2xl " name="task3" ><br>
+
+<lable class="font-bold text-white">Task4</lable><br>
+<input type="text"  class="border-4 p-4 border-solid border-4 border-gray-500 w-72 rounded-2xl "name="task4"  ><br>
+
+
+
+<button class=" p-4 bg-indigo-900 font-bold text-white mr-16 mt-8 hover:bg-emerald-600 text-2xl w-72 ml-16 mb-4	">Save </button>
+
+
+</form>
+
+
+</div>
+
+
+
+
+    
+</body>
+</html>
