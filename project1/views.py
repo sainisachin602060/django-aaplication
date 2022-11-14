@@ -49,6 +49,8 @@ def save(request):
             
         except:
             print("data is not inserted") 
+            cursor.close()
+            connection.close()
             
             
     else:
@@ -64,6 +66,8 @@ def show(request):
         cursor.execute(query1)
         data=cursor.fetchall()
         return render(request,'show.html',{'data':data})
+        cursor.close()
+        connection.close()
     except Exception as e:
         print(e)
         print("query not exceuted")
@@ -79,8 +83,13 @@ def delete(request):
         cursor.execute(query1,query2)
         connection.commit()  
         return HttpResponseRedirect('/show/')
+        cursor.close()
+        connection.close()
+    
     except:
         print("query not executed")
+        cursor.close()
+        connection.close()
         
         
 def edit(request):
@@ -95,6 +104,8 @@ def edit(request):
         cursor.execute(query1,query2)
         data=cursor.fetchmany()
         return render(request,'edit.html',{'ms':data})
+        cursor.close()
+        connection.close()
     
     except:
         print("query not execute")
@@ -116,6 +127,8 @@ def edited(request):
             cursor.execute(query1,query2)
             connection.commit()
             return HttpResponseRedirect("/show/")
+            cursor.close()
+            connection.close()
         
         except:
             print("query not executed")    
